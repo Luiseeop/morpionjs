@@ -1,0 +1,54 @@
+/* ------------------ RESET ------------------ */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Syne", sans-serif;
+    font-weight: 650;
+}
+
+/* ------------------ BASE ------------------ */
+
+
+.btn {
+  background-color: #292F36;
+  color: #fff;
+  padding: 10px 25px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  border-radius: 10px;
+  margin-left: 600px;
+  margin-top: 300px;
+}
+
+.grillemorpion {
+    display: grid;
+    grid-template-columns: repeat(3, 200px);
+    grid-template-rows: repeat(3, 200px);
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.case {
+    background-color: white;
+    border: 2px solid black;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.case>img{
+    width: 100%;
+}
+
+.rond{
+    background-image: url("assets/10810331.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
