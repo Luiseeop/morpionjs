@@ -22,6 +22,7 @@ const case9 = caseMorpion[8];
 console.log(caseMorpion);
 
 let j = 1
+let egalite = 0
 
 caseMorpion.forEach((element) => {
     element.addEventListener('click', () => {
@@ -34,7 +35,10 @@ caseMorpion.forEach((element) => {
                 j = j * -1
             }
             winCheck();
-        }
+            egalite++ 
+            console.log(egalite)
+            egalitcheck()
+        } 
     });
 
 })
@@ -77,5 +81,12 @@ function winCheck() {
         alert("t'as gagné!")
     } else if (case3.classList.contains('rond') === true && case5.classList.contains('rond') === true && case7.classList.contains('rond') === true) {
         alert("t'as gagné!")
+    }
+}
+
+
+function egalitcheck(){
+    if (egalite === 9) {
+        alert("egalite")
     }
 }
