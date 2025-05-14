@@ -1,41 +1,79 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Morpion</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Multiplication Infinie</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      font-family: sans-serif;
+    }
+    .cell {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: hsl(0, 100%, 50%);
+      animation: spin 1s linear infinite;
+      pointer-events: none;
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    #startBtn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      padding: 10px 20px;
+      font-size: 20px;
+      background: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+      z-index: 999;
+      border-radius: 5px;
+    }
+  </style>
 </head>
 <body>
-    
-<main>
-     <a href="morpion.html" class="btn" onclick="apocalypse()">commencer le jeu</a>
+  <button id="startBtn">Démarrer le chaos</button>
 
+  <script>
+    const body = document.body;
+    let chaosStarted = false;
+    let elements = [];
 
+    function createElement(x = Math.random() * window.innerWidth, y = Math.random() * window.innerHeight) {
+      const el = document.createElement("div");
+      el.className = "cell";
+      el.style.left = x + "px";
+      el.style.top = y + "px";
+      el.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      body.appendChild(el);
+      elements.push(el);
+    }
 
+    function multiply() {
+      const current = [...elements];
+      for (const el of current) {
+        const rect = el.getBoundingClientRect();
+        const x = rect.left;
+        const y = rect.top;
+        for (let i = 0; i < 2; i++) {
+          createElement(x + Math.random() * 100 - 50, y + Math.random() * 100 - 50);
+        }
+      }
+    }
 
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</main>
-
-
-
-
-<script src="script.js"></script>
+    document.getElementById("startBtn").addEventListener("click", () => {
+      if (chaosStarted) return;
+      chaosStarted = true;
+      createElement();
+      setInterval(multiply, 1000); // multiplie toutes les secondes
+    });
+  </script>
 </body>
 </html>
