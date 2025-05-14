@@ -36,7 +36,6 @@ caseMorpion.forEach((element) => {
             }
             winCheck();
             egalite++ 
-            console.log(egalite)
             egalitcheck()
         } 
     });
@@ -47,46 +46,80 @@ caseMorpion.forEach((element) => {
 
 function winCheck() {
     if (case1.classList.contains('croix') === true && case2.classList.contains('croix') === true && case3.classList.contains('croix') === true) {
-        alert("t'as gagné!")
+        setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case1.classList.contains('croix') === true && case4.classList.contains('croix') === true && case7.classList.contains('croix') === true) {
-        alert("t'as gagné!")
+         setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case2.classList.contains('croix') === true && case5.classList.contains('croix') === true && case8.classList.contains('croix') === true) {
-        alert("t'as gagné!")
+         setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case3.classList.contains('croix') === true && case6.classList.contains('croix') === true && case9.classList.contains('croix') === true) {
-        alert("t'as gagné!")
+         setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case4.classList.contains('croix') === true && case5.classList.contains('croix') === true && case6.classList.contains('croix') === true) {
-        alert("t'as gagné!")
+         setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case7.classList.contains('croix') === true && case8.classList.contains('croix') === true && case9.classList.contains('croix') === true) {
-        alert("t'as gagné!")
+         setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case1.classList.contains('croix') === true && case5.classList.contains('croix') === true && case9.classList.contains('croix') === true) {
-        alert("t'as gagné!")
+         setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case3.classList.contains('croix') === true && case5.classList.contains('croix') === true && case7.classList.contains('croix') === true) {
-        alert("t'as gagné!")
+          setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     }
 
     // rond
     else if (case1.classList.contains('rond') === true && case2.classList.contains('rond') === true && case3.classList.contains('rond') === true) {
-        alert("t'as gagné!")
+          setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case1.classList.contains('rond') === true && case4.classList.contains('rond') === true && case7.classList.contains('rond') === true) {
-        alert("t'as gagné!")
+         setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case2.classList.contains('rond') === true && case5.classList.contains('rond') === true && case8.classList.contains('rond') === true) {
-        alert("t'as gagné!")
+         setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case3.classList.contains('rond') === true && case6.classList.contains('rond') === true && case9.classList.contains('rond') === true) {
-        alert("t'as gagné!")
+          setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case4.classList.contains('rond') === true && case5.classList.contains('rond') === true && case6.classList.contains('rond') === true) {
-        alert("t'as gagné!")
+          setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case7.classList.contains('rond') === true && case8.classList.contains('rond') === true && case9.classList.contains('rond') === true) {
-        alert("t'as gagné!")
+          setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case1.classList.contains('rond') === true && case5.classList.contains('rond') === true && case9.classList.contains('rond') === true) {
-        alert("t'as gagné!")
+         setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     } else if (case3.classList.contains('rond') === true && case5.classList.contains('rond') === true && case7.classList.contains('rond') === true) {
-        alert("t'as gagné!")
+        setTimeout(() => {
+  alert("t'as gagné!");
+}, 100);
     }
 }
 
 
 function egalitcheck(){
     if (egalite === 9) {
-        alert("egalite")
+          setTimeout(() => {
+  alert("egalite");
+}, 100);
     }
 }
