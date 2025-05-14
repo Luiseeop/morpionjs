@@ -1,54 +1,33 @@
-/* ------------------ RESET ------------------ */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    list-style: none;
-    font-family: "Syne", sans-serif;
-    font-weight: 650;
-}
-
-/* ------------------ BASE ------------------ */
-
-
-.btn {
-  background-color: #292F36;
-  color: #fff;
-  padding: 10px 25px;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 22px;
-  border-radius: 10px;
-  margin-left: 600px;
-  margin-top: 300px;
-}
-
-.grillemorpion {
+.morpionContainer {
     display: grid;
-    grid-template-columns: repeat(3, 200px);
-    grid-template-rows: repeat(3, 200px);
-    justify-content: center;
-    margin-top: 50px;
+    grid-template-columns: repeat(3, 150px);
+    grid-template-rows: repeat(3, 150px);
+    width: 450px;
+    height: 450px;
+    gap: 10px;
 }
 
-.case {
-    background-color: white;
-    border: 2px solid black;
-    width: 200px;
-    height: 200px;
+.game {
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
-.case>img{
-    width: 100%;
+.caseMorpion {
+    width: 150px;
+    height: 150px;
+    display: flex;
+    border: 10px solid black;
+    flex-wrap: wrap;
 }
 
-.rond{
-    background-image: url("assets/10810331.png");
-    background-position: center;
+.rond {
+    background-image: url("assets/rond.png");
     background-repeat: no-repeat;
-    width: 100%;
+    background-position: center;
+}
+
+.croix {
+    background-image: url("assets/croix.png");
+    background-repeat: no-repeat;
+    background-position: center;
 }
